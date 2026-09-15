@@ -118,7 +118,7 @@ export default function Stripboard({
                 </div>
               </div>
 
-              <div className="flex flex-1 flex-col gap-1 p-1.5">
+              <div className="flex flex-1 flex-col gap-1 px-1 py-1.5">
                 {isLost && canceledTomorrow ? (
                   <div className="flex flex-1 items-center justify-center rounded-sm border border-dashed border-block-edge px-1 py-4 text-center text-2xs font-medium text-block-deep">
                     Day canceled
@@ -139,7 +139,7 @@ export default function Stripboard({
                   return (
                     <div
                       key={n}
-                      className={`animate-rise rounded-sm border px-1.5 py-1 ${stripClass(sc, lost)} ${wasMoved || keptHere ? 'ring-2 ring-ink/60 ring-offset-1 ring-offset-surface' : ''}`}
+                      className={`animate-rise rounded-sm border px-1 py-1 ${stripClass(sc, lost)} ${wasMoved || keptHere ? 'ring-2 ring-ink/60 ring-offset-1 ring-offset-surface' : ''}`}
                       style={{ minHeight: `${Math.max(26, sc.eighths * 2.6)}px` }}
                       title={`Sc ${sc.number} · ${sc.intExt}. ${sc.set} — ${sc.time} · ${formatEighths(sc.eighths)} pp · cast ${sc.cast.join(', ')}`}
                     >
