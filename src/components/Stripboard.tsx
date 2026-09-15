@@ -91,7 +91,7 @@ export default function Stripboard({
 
   return (
     <div className="overflow-x-auto">
-      <div className="flex min-w-[88rem] gap-1.5 px-1 pb-1">
+      <div className="flex min-w-[96rem] gap-1.5 px-1 pb-1">
         {columns.map(({ day, scenes, added, removedCount, where }) => {
           const head = dayHeading(day);
           const whereLabel = where ?? head.where;
@@ -113,7 +113,7 @@ export default function Stripboard({
               <div className="border-b border-line/80 px-2 py-1.5">
                 <div className={`tnum text-2xs font-semibold ${tinted ? 'text-block-deep' : 'text-ink'}`}>{head.label}</div>
                 <div className="tnum whitespace-nowrap text-2xs text-muted">{head.date}</div>
-                <div className="truncate text-2xs text-muted" title={whereLabel}>
+                <div className="line-clamp-2 text-2xs leading-tight text-muted" title={whereLabel}>
                   {whereLabel}
                 </div>
               </div>
@@ -147,7 +147,7 @@ export default function Stripboard({
                         <span className="tnum whitespace-nowrap text-2xs font-semibold text-ink">{sc.number}</span>
                         <span className="tnum whitespace-nowrap text-2xs text-ink/60">{formatEighths(sc.eighths)}</span>
                       </div>
-                      <div className="truncate text-2xs leading-tight text-ink/80">{sc.time === 'DAY' ? sc.set : `${sc.set} · ${sc.time}`}</div>
+                      <div className="line-clamp-2 text-2xs leading-tight text-ink/80">{sc.time === 'DAY' ? sc.set : `${sc.set} · ${sc.time}`}</div>
                       {wasMoved && from !== undefined ? (
                         <div className="mt-0.5 text-2xs font-medium text-ink">
                           ← from {from}
