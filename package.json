@@ -1,0 +1,42 @@
+{
+  "name": "dayeighty",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Production operations for a company that exists for seventy-nine days. Synthetic production, real constraints.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "og": "node scripts/make-og.mjs",
+    "relay:login": "wrangler login",
+    "relay:secret": "wrangler secret put ANTHROPIC_API_KEY",
+    "relay:dev": "wrangler dev --port 8787",
+    "relay:deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.125.0",
+    "@fontsource-variable/fraunces": "^5.1.0",
+    "@fontsource-variable/inter": "^5.1.0",
+    "@fontsource-variable/jetbrains-mono": "^5.1.0",
+    "lucide-react": "^0.454.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zod": "^4.6.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "sharp": "^0.35.3",
+    "tailwindcss": "^3.4.15",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.5",
+    "wrangler": "^4.132.0"
+  }
+}

@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    background-color: theme('colors.paper');
+    color-scheme: light;
+  }
+
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+    font-size: 15px;
+    line-height: 1.55;
+    font-feature-settings: 'cv11', 'ss01', 'calt';
+  }
+
+  /* The serif is for anything a producer would read aloud: headlines, the
+     verdict, the one sentence that explains a finding. Optical sizing on, so
+     small serif text does not turn spidery. */
+  .font-display {
+    font-optical-sizing: auto;
+    font-variation-settings: 'SOFT' 30, 'WONK' 0;
+    letter-spacing: -0.012em;
+  }
+
+  /* Tabular figures wherever a number sits above another number. */
+  .tnum,
+  .font-mono,
+  table {
+    font-variant-numeric: tabular-nums;
+  }
+
+  ::selection {
+    background: theme('colors.accent.edge');
+    color: theme('colors.ink');
+  }
+
+  :focus-visible {
+    outline: 2px solid theme('colors.accent.DEFAULT');
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: theme('colors.line-strong');
+    border-radius: 8px;
+    border: 2px solid theme('colors.paper');
+  }
+
+  input[type='range'] {
+    @apply h-1.5 w-full cursor-pointer appearance-none rounded-full bg-line;
+  }
+  input[type='range']::-webkit-slider-thumb {
+    @apply h-4 w-4 appearance-none rounded-full border-2 border-surface bg-accent shadow-card;
+  }
+  input[type='range']::-moz-range-thumb {
+    @apply h-4 w-4 rounded-full border-2 border-surface bg-accent shadow-card;
+  }
+}
+
+@layer components {
+  /* The small label that sits above a value or a section. Sentence case, a
+     little tracking, never shouting. */
+  .eyebrow {
+    @apply text-2xs font-medium uppercase tracking-eyebrow text-muted;
+  }
+
+  .card {
+    @apply rounded-lg border border-line bg-surface shadow-card;
+  }
+
+  .card-head {
+    @apply flex items-center justify-between gap-3 border-b border-line px-5 py-3.5;
+  }
+
+  /* SIGNATURE ELEMENT: breakdown spans.
+     When the reader reads a scene page, the exact words it read are marked in
+     place and stay linked to the fact they produced. Hover the fact, the words
+     light. Hover the words, the fact lights. */
+  .span-mark {
+    @apply rounded-[3px] px-[0.08em] transition-colors duration-150;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  .btn {
+    @apply inline-flex items-center gap-1.5 rounded-md border border-line bg-surface px-3 py-1.5 text-sm font-medium text-ink shadow-card transition-all hover:border-line-strong hover:shadow-lift active:translate-y-px;
+  }
+  .btn-primary {
+    @apply inline-flex items-center gap-1.5 rounded-md border border-ink bg-ink px-3 py-1.5 text-sm font-medium text-paper shadow-card transition-all hover:bg-black hover:shadow-lift active:translate-y-px;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-medium;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

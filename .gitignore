@@ -1,0 +1,32 @@
+node_modules/
+dist/
+*.local
+.DS_Store
+.vite/
+
+# Nothing resembling a real crew list, cast contract, or payroll export should
+# ever be committed to a repo about someone else's production.
+*.csv
+*.tsv
+*.xlsx
+data/
+uploads/
+exports/
+
+# Credentials, in every shape they usually arrive in.
+.env
+.env.*
+!.env.example
+*.pem
+.dev.vars
+
+# The relay's local build cache.
+.wrangler/
+
+# The deploy runbook names the recipient. This repo is meant to be read by him,
+# not about him.
+DEPLOY.md
+
+# Editor and tool state.
+.claude/
+tsconfig.tsbuildinfo
