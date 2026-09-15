@@ -197,6 +197,9 @@ represented, and nobody needed to be.
   a pasted page only if it starts with a slugline, is shorter than a scene, and carries no email
   address, amount of money, phone number, payment or identity term, or crew identifier. It is a shape
   check, not a content check; what it guarantees is that nothing shaped like a record passes.
+- **One view count.** The page loads Cloudflare's cookie-free analytics beacon, which records that a page
+  was viewed and roughly where from. It identifies nobody and sets no cookie. It is the only request that
+  leaves the page before you press read.
 - **The relay holds one key and no data.** `src/relay/worker.ts` is a Cloudflare Worker of about a
   hundred lines: it answers only the site's origin, passes the page through the same
   `buildLiveBreakdownRequest`, rate-limits by caller and in total, forwards the contract and the page

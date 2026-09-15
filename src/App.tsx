@@ -66,7 +66,7 @@ export default function App() {
             Day Eighty · {PRODUCTION.titleMark} · {PRODUCTION.nature} · a speculative prototype by{' '}
             <a href="https://github.com/scottdelia" className="text-ink underline decoration-line-strong underline-offset-2 hover:decoration-ink">Scott Delia</a>, unaffiliated with anyone it cites.
           </span>
-          <span>No network calls until you press read; then the page text goes to a relay and on to Anthropic, and nothing is stored. Every number recomputed from a fixed seed on load.</span>
+          <span>One anonymous view count, no cookies. Nothing else leaves your browser until you press read; then the page text goes to a relay and on to Anthropic, and nothing is stored. Every number recomputed from a fixed seed on load.</span>
         </div>
       </footer>
     </div>
