@@ -120,7 +120,7 @@ export default function CallSheetCard({ sheet, diff }: { sheet: CallSheet; diff?
 function SceneTable({ scenes, total }: { scenes: readonly CallSheetScene[]; total: number | null }) {
   return (
     <div className="overflow-x-auto">
-      <table className="w-full min-w-[30rem] text-left text-xs">
+      <table className="w-full text-left text-xs sm:min-w-[30rem]">
         <thead>
           <tr className="border-b border-line text-2xs uppercase tracking-eyebrow text-muted">
             <th className="px-5 py-2 font-medium">Sc</th>
@@ -159,7 +159,7 @@ function CastTable({ cast }: { cast: readonly CallSheetCast[] }) {
   if (cast.length === 0) return null;
   return (
     <div className="overflow-x-auto border-t border-line">
-      <table className="w-full min-w-[30rem] text-left text-xs">
+      <table className="w-full text-left text-xs sm:min-w-[30rem]">
         <thead>
           <tr className="border-b border-line text-2xs uppercase tracking-eyebrow text-muted">
             <th className="px-5 py-2 font-medium">No</th>

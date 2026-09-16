@@ -75,6 +75,7 @@ export default function Wrap() {
           <div className="overflow-x-auto px-5 py-4">
             <DeadlineRail deadlines={report.deadlines} />
           </div>
+          <p className="px-5 pb-3 text-2xs text-muted sm:hidden">Swipe sideways for the later days.</p>
         </Card>
 
         {/* ----------------------------- CATEGORIES ---------------------------- */}

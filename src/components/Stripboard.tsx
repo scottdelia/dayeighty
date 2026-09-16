@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import type { Placement, Scene } from '../engine';
 import { PRODUCTION, dayToDate, formatEighths, locationById, restDayAfter, sceneByNumber, shootDay, shortDate } from '../engine';
 
@@ -89,8 +89,17 @@ export default function Stripboard({
   const moved = moves.length > 0;
   const keptSet = new Set(kept);
 
+  // On a phone the board is wider than the screen. Open it on tomorrow, not on Day 46.
+  const scroller = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = scroller.current;
+    if (!el || el.scrollWidth <= el.clientWidth + 4) return;
+    const col = el.querySelector<HTMLElement>(`[data-day="${lostDay}"]`);
+    if (col) el.scrollLeft = Math.max(0, col.offsetLeft - 8);
+  }, [lostDay, moves]);
+
   return (
-    <div className="overflow-x-auto">
+    <div ref={scroller} className="overflow-x-auto">
       <div className="flex min-w-[88rem] gap-1.5 px-1 pb-1">
         {columns.map(({ day, scenes, added, removedCount, where }) => {
           const head = dayHeading(day);
@@ -106,6 +115,7 @@ export default function Stripboard({
           return (
             <div
               key={day}
+              data-day={day}
               className={`flex min-w-0 flex-1 flex-col rounded-md border ${
                 tinted ? 'border-block-edge bg-block-wash/60' : rest ? 'border-dashed border-line-strong bg-sunken/60' : 'border-line bg-surface'
               }`}
@@ -193,6 +203,7 @@ export default function Stripboard({
         <Legend cls="bg-strip-dayint border-line-strong" label="Day interior" />
         <Legend cls="bg-strip-nightint border-accent-edge" label="Night interior" />
         <Legend cls="bg-strip-lost border-block-edge" label="Lost" />
+        <span className="sm:hidden">Swipe sideways for the rest of the board.</span>
         <span className="ml-auto">The board's own colors. Strip height is page count.</span>
       </div>
     </div>

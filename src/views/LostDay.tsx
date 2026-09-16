@@ -102,9 +102,10 @@ export default function LostDay({ lostDay, onLostDayChange }: { lostDay: number;
       {/* ------------------------------- HERO ------------------------------- */}
       <header className="mx-auto max-w-7xl px-5 pb-8 pt-8 lg:px-8 lg:pt-12">
         <Eyebrow>
-          6:10 PM · {dayLabel(evalDay)} of {PRODUCTION.shootDays} · {longDate(dayToDate(evalDay))} · the call sheet is due at 8:00 PM · {PRODUCTION.titleMark} · {PRODUCTION.nature}
+          6:10 PM · {dayLabel(evalDay)} of {PRODUCTION.shootDays} · {longDate(dayToDate(evalDay))} · the call sheet is due at 8:00 PM
+          <span className="hidden sm:inline"> · {PRODUCTION.titleMark} · {PRODUCTION.nature}</span>
         </Eyebrow>
-        <h1 className="mt-3 max-w-[22ch] font-display text-[2.4rem] leading-[1.05] text-ink sm:text-[3rem]">
+        <h1 className="mt-3 max-w-[22ch] font-display text-[2rem] leading-[1.05] text-ink sm:text-[3rem]">
           Tomorrow is a washout. The call sheet goes out at eight.
         </h1>
         <p className="mt-5 max-w-[64ch] text-[16px] leading-relaxed text-body">

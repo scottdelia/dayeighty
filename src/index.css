@@ -92,10 +92,10 @@
   }
 
   .btn {
-    @apply inline-flex items-center gap-1.5 rounded-md border border-line bg-surface px-3 py-1.5 text-sm font-medium text-ink shadow-card transition-all hover:border-line-strong hover:shadow-lift active:translate-y-px;
+    @apply inline-flex items-center gap-1.5 rounded-md border border-line bg-surface px-3 py-2 text-sm font-medium text-ink shadow-card sm:py-1.5 transition-all hover:border-line-strong hover:shadow-lift active:translate-y-px;
   }
   .btn-primary {
-    @apply inline-flex items-center gap-1.5 rounded-md border border-ink bg-ink px-3 py-1.5 text-sm font-medium text-paper shadow-card transition-all hover:bg-black hover:shadow-lift active:translate-y-px;
+    @apply inline-flex items-center gap-1.5 rounded-md border border-ink bg-ink px-3 py-2 text-sm font-medium text-paper shadow-card sm:py-1.5 transition-all hover:bg-black hover:shadow-lift active:translate-y-px;
   }
   .chip {
     @apply inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-medium;
