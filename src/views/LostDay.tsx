@@ -156,18 +156,23 @@ export default function LostDay({ lostDay, onLostDayChange }: { lostDay: number;
               {lostScenes.map((sc) => (
                 <li key={sc.number} className="flex items-start gap-4 px-5 py-3">
                   <span className="tnum w-8 shrink-0 font-semibold text-ink">{sc.number}</span>
-                  <div className="min-w-0 flex-1">
-                    <div className="text-sm text-ink">{slugOf(sc)}</div>
-                    <div className="mt-0.5 text-2xs text-muted">
-                      {formatEighths(sc.eighths)} pp · cast {sc.cast.map((n) => `${n} ${castByNumber(n).character}`).join(', ')}
-                      {sc.extras ? ` · ${sc.extras} background` : ''}
-                      {sc.needs.length ? ` · ${sc.needs.map((n) => n.replace('_', ' ')).join(', ')}` : ''}
+                  {/* On a phone the tags drop under the text; beside it from sm up. Never let them squeeze the slugline. */}
+                  <div className="min-w-0 flex-1 sm:flex sm:items-start sm:gap-4">
+                    <div className="min-w-0 flex-1">
+                      <div className="text-sm text-ink">{slugOf(sc)}</div>
+                      <div className="mt-0.5 text-2xs text-muted">
+                        {formatEighths(sc.eighths)} pp · cast {sc.cast.map((n) => `${n} ${castByNumber(n).character}`).join(', ')}
+                        {sc.extras ? ` · ${sc.extras} background` : ''}
+                        {sc.needs.length ? ` · ${sc.needs.map((n) => n.replace('_', ' ')).join(', ')}` : ''}
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex shrink-0 flex-wrap justify-end gap-1">
-                    {sc.time === 'DAWN' || sc.time === 'DUSK' ? <Chip sev="review">locked to {sc.time.toLowerCase()}</Chip> : null}
-                    {sc.cast.some((n) => castByNumber(n).minor) ? <Chip sev="review">minor</Chip> : null}
-                    {sc.secondUnit ? <Chip sev="open">2nd unit eligible</Chip> : null}
+                    {sc.time === 'DAWN' || sc.time === 'DUSK' || sc.secondUnit || sc.cast.some((n) => castByNumber(n).minor) ? (
+                      <div className="mt-1.5 flex flex-wrap gap-1 sm:mt-0 sm:shrink-0 sm:justify-end">
+                        {sc.time === 'DAWN' || sc.time === 'DUSK' ? <Chip sev="review">locked to {sc.time.toLowerCase()}</Chip> : null}
+                        {sc.cast.some((n) => castByNumber(n).minor) ? <Chip sev="review">minor</Chip> : null}
+                        {sc.secondUnit ? <Chip sev="open">2nd unit eligible</Chip> : null}
+                      </div>
+                    ) : null}
                   </div>
                 </li>
               ))}
