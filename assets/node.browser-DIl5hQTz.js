@@ -1,0 +1,1 @@
+import{A as o}from"./index-DXVNToi5.js";function t(n){return new Proxy({},{get(r,e){if(typeof e!="symbol")throw new o(`\`${n}.${e}\` is not available in this environment; it needs a Node.js-compatible runtime`)}})}t("child_process");t("crypto");const s=t("fs");t("os");const a=t("path");t("stream");t("util");export{s as fs,a as path};
